@@ -2,7 +2,6 @@
 ByteTrack Tracking with YOLOv7 Detection
 """
 
-from skimage import io
 import numpy as np
 import cv2
 from yolov7_wrapper import detector
@@ -15,6 +14,8 @@ def main():
     tracker = ByteTrackWrapper(args=args)
 
     webcam_stream = cv2.VideoCapture(0)
+    webcam_stream.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+    webcam_stream.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
     while True:
         _, image = webcam_stream.read()
