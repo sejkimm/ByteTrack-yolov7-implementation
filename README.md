@@ -1,3 +1,44 @@
+# ByteTrack-yolov7-implementation
+
+Simple Implementation of Yolov7 on ByteTrack from webcam source.
+
+Thanks for the works -
+
+[YOLOv7 by WongKinYiu](https://github.com/WongKinYiu/yolov7)
+
+[ByteTrack by ifzhang](https://github.com/ifzhang/ByteTrack)
+
+## How to use
+
+1. Create an empty folder ***model*** under ***./yolov7***
+2. Add a trained YOLOv7 Weights in ***./yolov7/model***
+3. Change directory name on ***yolov7_wrapper.py***
+
+``` python
+weight_dir=os.getcwd() + "/yolov7/model/yolov7-tiny.pt",
+```
+
+4. Run ***track_yolov7.py***
+
+``` bash
+python track_yolov7.py
+```
+
+It will ask for webcam permission.
+
+## Further
+
+Input sources can be simply replaced by editing -
+
+``` python
+# track_yolov7.py
+
+def main():
+    while True:
+        _, image = webcam_stream.read() # Replace this image object from your source.
+        output = detector.detect(img_np=image)
+```
+
 # ByteTrack
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/bytetrack-multi-object-tracking-by-1/multi-object-tracking-on-mot17)](https://paperswithcode.com/sota/multi-object-tracking-on-mot17?p=bytetrack-multi-object-tracking-by-1)
